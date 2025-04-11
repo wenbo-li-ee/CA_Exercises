@@ -11,3 +11,7 @@ s6::(31Mar2025:15:31:47):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -times
 s7::(01Apr2025:12:01:17):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition -linedebug -gui )
 s8::(03Apr2025:08:37:26):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition -linedebug -gui )
 s9::(03Apr2025:08:39:52):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition -linedebug -gui )
+s10::(10Apr2025:16:55:25):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition -linedebug -gui )
+s11::(10Apr2025:17:02:18):( /esat/micas-data/software/Cadence/xcelium_23.03/tools/bin/64bit/xrun -elaborate cpu_tb.v cpu.v )
+s12::(10Apr2025:17:13:31):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition -linedebug -gui )
+s13::(10Apr2025:20:03:32):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition -linedebug -gui )

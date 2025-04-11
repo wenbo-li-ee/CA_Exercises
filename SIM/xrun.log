@@ -1,5 +1,5 @@
 xrun(64): 23.03-s002: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.03-s002: Started on Apr 03, 2025 at 08:39:52 CEST
+TOOL:	xrun(64)	23.03-s002: Started on Apr 10, 2025 at 20:03:31 CEST
 xrun
 	+sv
 	-64bit
@@ -25,6 +25,38 @@ xrun
 	-linedebug
 	-gui
 xrun: *W,BADPRF: The -linedebug option may have an adverse performance impact.
+Recompiling... reason: file '../Verilog/RTL/cpu.v' is newer than expected.
+	expected: Thu Apr 10 17:13:11 2025
+	actual:   Thu Apr 10 20:03:02 2025
+file: ../Verilog/RTL/cpu.v
+	module worklib.cpu:v
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		cpu_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.reg_arstn_en:v <0x218c208a>
+			streams:   5, words:  2210
+		worklib.cpu_tb:v <0x6774d4d5>
+			streams:  27, words: 95608
+		worklib.cpu:v <0x2889af72>
+			streams:  59, words: 17132
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 22      15
+		Registers:              116     105
+		Scalar wires:            52       -
+		Vectored wires:          69       -
+		Always blocks:           49      38
+		Initial blocks:           3       3
+		Cont. assignments:       45      41
+		Pseudo assignments:      43       -
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.cpu_tb:v
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
 
 -------------------------------------
@@ -36,11 +68,23 @@ xcelium> run
 Start Execution
 
 [1;34m
-Mult1 Working Correctly
+Mult2 Working Correctly
 [0m
-       2300 cycles
-Simulation complete via $finish(1) at time 258450 NS + 8
+         40 cycles
+Simulation complete via $finish(1) at time 32450 NS + 8
+../Verilog/cpu_tb.v:341    $finish;
+xcelium> reset
+Loaded snapshot worklib.cpu_tb:v
+xcelium> run
+
+Start Execution
+
+[1;34m
+Mult2 Working Correctly
+[0m
+         40 cycles
+Simulation complete via $finish(1) at time 32450 NS + 8
 ../Verilog/cpu_tb.v:341    $finish;
 xcelium> ^C
 xcelium> exit
-TOOL:	xrun(64)	23.03-s002: Exiting on Apr 03, 2025 at 08:40:07 CEST  (total: 00:00:15)
+TOOL:	xrun(64)	23.03-s002: Exiting on Apr 11, 2025 at 09:07:06 CEST  (total: 13:03:35)
