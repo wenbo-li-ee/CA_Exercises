@@ -1,5 +1,5 @@
 xrun(64): 23.03-s002: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.03-s002: Started on Mar 06, 2025 at 08:31:32 CET
+TOOL:	xrun(64)	23.03-s002: Started on Apr 03, 2025 at 08:39:52 CEST
 xrun
 	+sv
 	-64bit
@@ -25,107 +25,22 @@ xrun
 	-linedebug
 	-gui
 xrun: *W,BADPRF: The -linedebug option may have an adverse performance impact.
-file: ../Verilog/RTL/alu.v
-	module worklib.alu:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/alu_control.v
-	module worklib.alu_control:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/branch_unit.v
-	module worklib.branch_unit:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/control_unit.v
-	module worklib.control_unit:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/cpu.v
-	module worklib.cpu:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/immediate_extend_unit.v
-	module worklib.immediate_extend_unit:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/mux_2.v
-	module worklib.mux_2:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/pc.v
-	module worklib.pc:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/register_file.v
-	module worklib.register_file:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/reg_arstn.v
-	module worklib.reg_arstn:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/reg_arstn_en.v
-	module worklib.reg_arstn_en:v
-		errors: 0, warnings: 0
-file: ../Verilog/RTL/sram.v
-	module worklib.sram_BW32:v
-		errors: 0, warnings: 0
-	module worklib.sram_BW64:v
-		errors: 0, warnings: 0
-file: ../Verilog/cpu_tb.v
-	module worklib.cpu_tb:v
-		errors: 0, warnings: 0
-file: ../Verilog/sky130_sram_2rw.v
-	module worklib.sky130_sram_2rw_32x128_32:v
-		errors: 0, warnings: 0
-	module worklib.sky130_sram_2rw_64x128_64:v
-		errors: 0, warnings: 0
-	Elaborating the design hierarchy:
-		Caching library 'worklib' ....... Done
-	Top level design units:
-		cpu_tb
-	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.branch_unit:v <0x7da84b5b>
-			streams:   2, words:  1159
-		worklib.alu:v <0x005ece5d>
-			streams:   7, words: 11024
-		worklib.alu_control:v <0x1d7195c3>
-			streams:   3, words:  3084
-		worklib.control_unit:v <0x17ce22e5>
-			streams:   1, words:  3499
-		worklib.sky130_sram_2rw_64x128_64:v <0x3913c981>
-			streams:   4, words:  6070
-		worklib.sky130_sram_2rw_32x128_32:v <0x773b6440>
-			streams:   6, words:  5178
-		worklib.reg_arstn_en:v <0x6ffee7c5>
-			streams:   5, words:  2171
-		worklib.mux_2:v <0x3253a434>
-			streams:   1, words:   894
-		worklib.pc:v <0x63cc568b>
-			streams:   5, words:  2297
-		worklib.immediate_extend_unit:v <0x3bbbf5dc>
-			streams:   3, words:  4480
-		worklib.cpu_tb:v <0x1583e49f>
-			streams:  27, words: 95808
-		worklib.sram_BW32:v <0x1c85f9e9>
-			streams:  11, words:  7043
-		worklib.sram_BW64:v <0x3419124d>
-			streams:  11, words:  7150
-		worklib.register_file:v <0x2ae865d3>
-			streams:   5, words:  7431
-		worklib.cpu:v <0x5be02ac0>
-			streams:   3, words:   581
-	Building instance specific data structures.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		                  Instances  Unique
-		Modules:                 18      15
-		Registers:              103     100
-		Scalar wires:            31       -
-		Expanded wires:          32       1
-		Vectored wires:          38       -
-		Always blocks:           40      37
-		Initial blocks:           3       3
-		Cont. assignments:        4       4
-		Pseudo assignments:      33       -
-		Simulation timescale:  10ps
-	Writing initial simulation snapshot: worklib.cpu_tb:v
 xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
 
 -------------------------------------
 Relinquished control to SimVision...
 xcelium> 
 xcelium> source /esat/micas-data/software/Cadence/xcelium_23.03/tools/xcelium/files/xmsimrc
-xcelium> 
+xcelium> run
+
+Start Execution
+
+[1;34m
+Mult1 Working Correctly
+[0m
+       2300 cycles
+Simulation complete via $finish(1) at time 258450 NS + 8
+../Verilog/cpu_tb.v:341    $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	23.03-s002: Exiting on Apr 03, 2025 at 08:40:07 CEST  (total: 00:00:15)
