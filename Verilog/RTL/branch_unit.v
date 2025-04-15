@@ -16,8 +16,11 @@ module branch_unit#(
       output reg  signed [DATA_W-1:0]  jump_pc
    );
 
-   always@(*) branch_pc           = current_pc + immediate_extended;
-   always@(*) jump_pc             = current_pc + immediate_extended;
+   wire signed [DATA_W-1:0] Offset;
+   assign Offset = immediate_extended <<< 1;
+
+   always@(*) branch_pc           = current_pc + Offset;
+   always@(*) jump_pc             = current_pc + Offset;
   
 endmodule
 

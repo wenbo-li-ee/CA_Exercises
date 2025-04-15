@@ -67,6 +67,8 @@ wire [      63:0] regfile_wdata,mem_data,alu_out,
 wire signed [63:0] immediate_extended;
 
 
+wire branch_taken;
+
 //ID_EX_reg
 wire [       1:0] alu_op_ID_EX;
 wire              reg_dst_ID_EX,branch_ID_EX,mem_read_ID_EX,mem_2_reg_ID_EX,
@@ -200,6 +202,7 @@ reg_arstn_en#(
 
 control_unit control_unit(
    .opcode   (instruction_IF_ID[6:0]),
+   .branch_taken(branch_taken),
    .alu_op   (alu_op          ),
    .reg_dst  (reg_dst         ),
    .branch   (branch          ),
@@ -208,7 +211,8 @@ control_unit control_unit(
    .mem_write(mem_write       ),
    .alu_src  (alu_src         ),
    .reg_write(reg_write       ),
-   .jump     (jump            )
+   .jump     (jump            ),
+   .flush    ()
 );
 
 
@@ -228,7 +232,7 @@ register_file #(
    .rdata_2  (regfile_rdata_2   )
 );
 
-
+assign branch_taken = (regfile_rdata_1 == regfile_rdata_2)? 1'b1 : 1'b0;
 
 
 immediate_extend_unit immediate_extend_u(

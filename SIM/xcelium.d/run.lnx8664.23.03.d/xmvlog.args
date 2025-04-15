@@ -18,6 +18,8 @@
 ../Verilog/RTL/reg_arstn.v
 ../Verilog/RTL/reg_arstn_en.v
 ../Verilog/RTL/sram.v
+../Verilog/RTL/mux_3.v
+../Verilog/RTL/forwarding_unit.v
 ../Verilog/cpu_tb.v
 ../Verilog/sky130_sram_2rw.v
 -ALLOWREDEFINITION
