@@ -81,7 +81,7 @@ module control_unit(
             branch    = 1'b0;
             alu_op    = 2'bxx;
             jump      = 1'b1;
-            flush     = 1'b0;
+            flush     = 1'b1;
          end
 
          LOAD:begin

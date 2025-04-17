@@ -1,0 +1,279 @@
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.clk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.arst_n}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.current_pc[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.instruction[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.IF_ID_reg_D[95:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.IF_ID_reg_Q[95:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.current_pc_IF_ID[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.instruction_IF_ID[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.hazard_detector.mem_read_ID_EX}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.hazard_detector.rd_ID_EX[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.hazard_detector.rs1_IF_ID[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.hazard_detector.rs2_IF_ID[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.hazard_detector.PC_write_enable}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.hazard_detector.IF_ID_write_enable}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.hazard_detector.mux_control_EX}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.opcode[6:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.branch_taken}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.reg_dst}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.branch}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.mem_read}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.mem_2_reg}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.mem_write}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.alu_src}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.reg_write}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.jump}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.control_unit.flush}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.branch_unit.current_pc[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.branch_unit.immediate_extended[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.branch_unit.branch_pc[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.branch_unit.jump_pc[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.register_file.raddr_1[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.register_file.raddr_2[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.register_file.waddr[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.register_file.rdata_1[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.register_file.rdata_2[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.register_file.wdata[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.immediate_extend_u.instruction[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.immediate_extend_u.immediate_extended[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.ID_EX_source_mux.input_a[7:0]}]}
+	} ]]
+waveform hierarchy expand $id
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.ID_EX_source_mux.input_b[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.ID_EX_source_mux.select_a}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.ID_EX_source_mux.mux_out[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.ID_EX_reg_D[231:0]}]}
+	} ]]
+waveform hierarchy collapse $id
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.ID_EX_reg_Q[231:0]}]}
+	} ]]
+waveform hierarchy collapse $id
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand1_mux.input_a[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand1_mux.input_b[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand1_mux.input_c[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand1_mux.select_a[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand1_mux.mux_out[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand2_mux.input_a[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand2_mux.input_b[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand2_mux.input_c[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand2_mux.select_a[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand2_mux.mux_out[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand_mux.input_a[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand_mux.input_b[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand_mux.select_a}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_operand_mux.mux_out[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu.alu_in_0[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu.alu_in_1[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu.alu_ctrl[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu.alu_out[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.forwarding_unit.rs1_ID_EX[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.forwarding_unit.rs2_ID_EX[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.forwarding_unit.rd_EX_MEM[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.forwarding_unit.rd_MEM_WB[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.forwarding_unit.reg_write_EX_MEM}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.forwarding_unit.reg_write_MEM_WB}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.forwarding_unit.forward_a[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.forwarding_unit.forward_b[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_ctrl.func7[6:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_ctrl.func3[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_ctrl.alu_op[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.alu_ctrl.alu_control[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.EX_MEM_reg_D[163:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.EX_MEM_reg_Q[163:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.addr[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.wdata[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.rdata[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.MEM_WB_reg_Q[161:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.MEM_WB_reg_D[161:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.regfile_data_mux.input_a[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.regfile_data_mux.input_b[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.regfile_data_mux.select_a}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.regfile_data_mux.mux_out[63:0]}]}
+	} ]]
+
+waveform xview limits 497982400ps 500030400ps
