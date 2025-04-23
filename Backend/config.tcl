@@ -33,7 +33,7 @@ set ::env(FP_PDN_MACRO_HOOKS) "\
  
 # Option-?: Some floorplan empirical parameters
 ## floorplan factor that controls the core utilization and the relative die area
-set ::env(FP_CORE_UTIL) 35
+set ::env(FP_CORE_UTIL) 25
 # set ::env(FP_CORE_UTIL) 50
 # set ::env(FP_CORE_UTIL) 65
 
@@ -54,7 +54,7 @@ set ::env(PL_MACRO_CHANNEL) [list 80 80]
 # set ::env(MACRO_PLACEMENT_CFG) macro_placement.cfg
 
 # other config
-set ::env(ROUTING_CORES) 48
+set ::env(ROUTING_CORES) 12
 set ::env(RUN_KLAYOUT_XOR) 0
 set ::env(MAGIC_DRC_USE_GDS) 0
 set ::env(QUIT_ON_MAGIC_DRC) 0    

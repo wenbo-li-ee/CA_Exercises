@@ -119,6 +119,7 @@ set id [waveform add -signals [subst  {
 set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.register_file.wdata[63:0]}]}
 	} ]]
+waveform format $id -radix %d
 set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.immediate_extend_u.instruction[31:0]}]}
 	} ]]
@@ -141,11 +142,9 @@ set id [waveform add -signals [subst  {
 set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.ID_EX_reg_D[231:0]}]}
 	} ]]
-waveform hierarchy collapse $id
 set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.ID_EX_reg_Q[231:0]}]}
 	} ]]
-waveform hierarchy collapse $id
 set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.alu_operand1_mux.input_a[63:0]}]}
 	} ]]
@@ -246,17 +245,36 @@ set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.data_memory.addr[63:0]}]}
 	} ]]
 set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.addr_ext[63:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.data_memory.wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.wen_ext}]}
 	} ]]
 set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.data_memory.ren}]}
 	} ]]
 set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.ren_ext}]}
+	} ]]
+set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.data_memory.wdata[63:0]}]}
 	} ]]
+waveform format $id -radix %d
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.wdata_ext[63:0]}]}
+	} ]]
+waveform format $id -radix %d
 set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.data_memory.rdata[63:0]}]}
 	} ]]
+waveform format $id -radix %d
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.dut.data_memory.rdata_ext[63:0]}]}
+	} ]]
+waveform format $id -radix %d
 set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.MEM_WB_reg_Q[161:0]}]}
 	} ]]
@@ -275,5 +293,161 @@ set id [waveform add -signals [subst  {
 set id [waveform add -signals [subst  {
 	{[format {cpu_tb.dut.regfile_data_mux.mux_out[63:0]}]}
 	} ]]
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.test_mult_4.result_mem_mult4[0:73]}]}
+	} ]]
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 4]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 5]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 6]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 7]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 8]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 9]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 10]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 11]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 12]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 13]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 14]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 15]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 16]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 17]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 18]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 19]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 20]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 21]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 22]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 23]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 24]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 25]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 26]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 27]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 28]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 29]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 30]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 31]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 32]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 33]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 34]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 35]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 36]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 37]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 38]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 39]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 40]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 41]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 42]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 43]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 44]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 45]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 46]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 47]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 48]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 49]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 50]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 51]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 52]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 53]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 54]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 55]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 56]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 57]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 58]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 59]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 60]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 61]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 62]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 63]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 64]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 65]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 66]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 67]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 68]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 69]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 70]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 71]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 72]
+waveform format $id2 -radix %d
+set id2 [lindex [waveform hierarchy content $id] 73]
+waveform format $id2 -radix %d
+set id [waveform add -signals [subst  {
+	{[format {cpu_tb.ref_reg[0:127]}]}
+	} ]]
+waveform hierarchy expand $id
 
-waveform xview limits 497982400ps 500030400ps
+waveform xview limits 41686350ps 44773230ps

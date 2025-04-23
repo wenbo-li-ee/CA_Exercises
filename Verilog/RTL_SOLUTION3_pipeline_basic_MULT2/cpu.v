@@ -322,7 +322,7 @@ sram_BW64 #(
 reg_arstn_en#(
    .DATA_W(162)
 )signal_pipe_MEM_WB(
-   .clk    (~clk),
+   .clk    (clk),
    .arst_n (arst_n),
    .en     (MEM_WB_reg_enable),
    .din    (MEM_WB_reg_D),
