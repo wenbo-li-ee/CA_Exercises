@@ -15,6 +15,7 @@ module alu #(
    )(
       input   wire signed [DATA_W-1:0] alu_in_0,
       input   wire signed [DATA_W-1:0] alu_in_1,
+      input   wire signed [DATA_W-1:0] alu_in_2,
       input   wire        [       3:0] alu_ctrl,
       output  reg  signed [DATA_W-1:0] alu_out,
       output  reg		               zero_flag,
@@ -67,7 +68,7 @@ module alu #(
       and_out  =   alu_in_0 & alu_in_1;
       or_out   =   alu_in_0 | alu_in_1;
       slt_out  =  (alu_in_0 < alu_in_1) ? 1:0;        //Zero extend the 1 bit slt flag to a DATA_W bit value     
-      mul_out  = alu_in_0 * alu_in_1;
+      mul_out  = alu_in_0 * alu_in_1 + alu_in_2;
    end
 
    //This block will translate into a multiplexer, where alu_ctrl

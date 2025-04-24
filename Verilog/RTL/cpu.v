@@ -340,6 +340,7 @@ alu#(
 ) alu(
    .alu_in_0 (mux_3_alu_operand_1 ),
    .alu_in_1 (alu_operand_2   ),
+   .alu_in_2 (alu_out_EX_MEM),
    .alu_ctrl (alu_control     ),
    .alu_out  (alu_out         ),
    .zero_flag(                ),
