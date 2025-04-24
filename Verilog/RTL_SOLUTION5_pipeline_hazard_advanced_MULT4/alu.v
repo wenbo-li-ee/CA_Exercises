@@ -15,7 +15,7 @@ module alu #(
    )(
       input   wire signed [DATA_W-1:0] alu_in_0,
       input   wire signed [DATA_W-1:0] alu_in_1,
-      input   wire signed [DATA_w-1:0] alu_in_2,
+      input   wire signed [DATA_W-1:0] alu_in_2,
       input   wire        [       3:0] alu_ctrl,
       output  reg  signed [DATA_W-1:0] alu_out,
       output  reg		               zero_flag,
