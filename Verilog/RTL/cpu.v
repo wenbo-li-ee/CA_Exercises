@@ -178,6 +178,7 @@ assign mac_out_EX_MEM_to_mux = alu_out_MEM_WB + alu_out_EX_MEM_to_mux;
 
 
 
+
 pc #(
    .DATA_W(64)
 ) program_counter (

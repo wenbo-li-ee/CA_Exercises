@@ -27,7 +27,6 @@ module alu_control(
    parameter [3:0] SUB_OP        = 4'd6;
    parameter [3:0] SLT_OP        = 4'd7;
    parameter [3:0] MUL_OP        = 4'd8;
-   parameter [3:0] MAC_OP        = 4'd9;
 
    //The decoding of the instruction funtion field into the desired
    //alu operation can be found in Figure 4.12 of the Patterson Book,
@@ -80,7 +79,7 @@ always @(*) begin
             mac_select = 1'b0;
         end
         FUNC_MAC : begin
-            rtype_op   = MAC_OP;
+            rtype_op   = MUL_OP;
             mac_select = 1'b1;
         end
         default : begin
