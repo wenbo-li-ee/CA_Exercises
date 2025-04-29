@@ -1,34 +1,117 @@
-addi x25, x0, 0 # input's address starting point in dmem
-addi x26, x0, 160 # weight's address starting point in dmem
-addi x27, x0, 400 # output's address starting point in dmem
-addi x11, x0, 5 # total C loop size
-addi x12, x0, 6 # total K loop size
-addi x13, x0, 4 # total B loop size
-addi x21, x0, 0 # C loop index starts with 0
-addi x22, x0, 0 # K loop index starts with 0
-addi x23, x0, 0 # B loop index starts with 0
-addi x7, x0, 0 # accumation result initilization
-B_CHECK: beq x23, x13, B_END
-K_CHECK: beq x22, x12, K_END
-C_CHECK: beq x21, x11, C_END
-ld x4, 0(x25) # load 1 input data
-ld x5, 0(x26) # load 1 weight data
-mul x6, x4, x5 # multiply the input with the weight
-add x7, x7, x6 # accumulate the result
-addi x21, x21, 1 # C loop index +1
-addi x25, x25, 8 # input's 64-bit word address +1
-addi x26, x26, 8 # weight's 64-bit word address +1
-jal C_CHECK
-C_END: addi x21, x0, 0 # C loop index restarts with 0
-sd x7, 0(x27) # store the output data
-addi x7, x0, 0 # accumation result reset to 0
-addi x22, x22, 1 # K loop index +1
-addi x25, x25, -40 # input's 64-bit word address -5
-addi x27, x27, 8 # output's 64-bit word address +1
-jal K_CHECK
-K_END: addi x22, x0, 0 # K loop index restarts with 0
-addi x23, x23, 1 # B loop index +1
-addi x25, x25, 40 # input's 64-bit word address +5
-addi x26, x26, -240 # input's 64-bit word address -30
-jal B_CHECK
-B_END:
+addi x27, x0, 0
+addi x28, x0, 0
+addi x29, x0, 0
+addi x30, x0, 3
+ld x31, 0(x0)
+ld x2, 8(x0)
+ld x3, 16(x0)
+ld x4, 24(x0)
+ld x5, 32(x0)
+ld x6, 40(x0)
+ld x7, 48(x0)
+ld x8, 56(x0)
+ld x9, 64(x0)
+ld x10, 72(x0)
+ld x11, 80(x0)
+ld x12, 88(x0)
+ld x13, 96(x0)
+ld x14, 104(x0)
+ld x15, 112(x0)
+ld x16, 120(x0)
+ld x17, 128(x0)
+ld x18, 136(x0)
+ld x19, 144(x0)
+ld x20, 152(x0)
+
+
+
+CHECK: beq x29, x30, END
+ld x21, 160(x27)
+ld x22, 168(x27)
+ld x23, 176(x27)
+ld x24, 184(x27)
+ld x25, 192(x27)
+
+addi x26, x0, 0 # accumation result initilization
+mulh x26, x31, x21
+mulh x26, x2, x22
+mulh x26, x3, x23
+mulh x26, x4, x24
+mulh x26, x5, x25
+sd x26, 400(x28)
+
+addi x26, x0, 0 # accumation result initilization
+mulh x26, x6, x21
+mulh x26, x7, x22
+mulh x26, x8, x23
+mulh x26, x9, x24
+mulh x26, x10, x25
+sd x26, 448(x28)
+
+addi x26, x0, 0 # accumation result initilization
+mulh x26, x11, x21
+mulh x26, x12, x22
+mulh x26, x13, x23
+mulh x26, x14, x24
+mulh x26, x15, x25
+sd x26, 496(x28)
+
+
+addi x26, x0, 0 # accumation result initilization
+mulh x26, x16, x21
+mulh x26, x17, x22
+mulh x26, x18, x23
+mulh x26, x19, x24
+mulh x26, x20, x25
+sd x26, 544(x28)
+
+
+ld x21, 200(x27)
+ld x22, 208(x27)
+ld x23, 216(x27)
+ld x24, 224(x27)
+ld x25, 232(x27)
+
+addi x26, x0, 0 # accumation result initilization
+mulh x26, x31, x21
+mulh x26, x2, x22
+mulh x26, x3, x23
+mulh x26, x4, x24
+mulh x26, x5, x25
+sd x26, 408(x28)
+
+addi x26, x0, 0 # accumation result initilization
+mulh x26, x6, x21
+mulh x26, x7, x22
+mulh x26, x8, x23
+mulh x26, x9, x24
+mulh x26, x10, x25
+sd x26, 456(x28)
+
+addi x26, x0, 0 # accumation result initilization
+mulh x26, x11, x21
+mulh x26, x12, x22
+mulh x26, x13, x23
+mulh x26, x14, x24
+mulh x26, x15, x25
+sd x26, 504(x28)
+
+
+addi x26, x0, 0 # accumation result initilization
+mulh x26, x16, x21
+mulh x26, x17, x22
+mulh x26, x18, x23
+mulh x26, x19, x24
+mulh x26, x20, x25
+sd x26, 552(x28)
+
+addi x29, x29, 1
+addi x28, x28, 16
+addi x27, x27, 80
+jal CHECK
+
+
+
+
+
+END:
