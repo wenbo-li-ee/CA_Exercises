@@ -28,7 +28,6 @@ module alu_control(
    parameter [3:0] SLT_OP        = 4'd7;
    parameter [3:0] MUL_OP        = 4'd8;
 
-
    //The decoding of the instruction funtion field into the desired
    //alu operation can be found in Figure 4.12 of the Patterson Book,
    //section 4.4
@@ -45,50 +44,20 @@ module alu_control(
 
 	reg [3:0] rtype_op;
    
-always @(*) begin
-    case(function_field)
-        FUNC_ADD : begin
-            rtype_op   = ADD_OP;
-            mac_select = 1'b0;
-        end
-        FUNC_SUB : begin
-            rtype_op   = SUB_OP;
-            mac_select = 1'b0;
-        end
-        FUNC_AND : begin
-            rtype_op   = AND_OP;
-            mac_select = 1'b0;
-        end
-        FUNC_OR  : begin
-            rtype_op   = OR_OP;
-            mac_select = 1'b0;
-        end
-        FUNC_SLT : begin
-            rtype_op   = SLT_OP;
-            mac_select = 1'b0;
-        end
-        FUNC_SLL : begin
-            rtype_op   = SLL_OP;
-            mac_select = 1'b0;
-        end
-        FUNC_SRL : begin
-            rtype_op   = SRL_OP;
-            mac_select = 1'b0;
-        end
-        FUNC_MUL : begin
-            rtype_op   = MUL_OP;
-            mac_select = 1'b0;
-        end
-        FUNC_MAC : begin
-            rtype_op   = MUL_OP;
-            mac_select = 1'b1;
-        end
-        default : begin
-            rtype_op   = 4'd0;
-            mac_select = 1'b0;
-        end
-    endcase
-end
+   always @(*) begin
+		case(function_field)
+		   FUNC_ADD	:  rtype_op = ADD_OP;
+		   FUNC_SUB	:  rtype_op = SUB_OP;
+		   FUNC_AND	:  rtype_op = AND_OP;
+		   FUNC_OR 	:  rtype_op = OR_OP; 
+		   FUNC_SLT	:  rtype_op = SLT_OP;
+		   FUNC_SLL	:  rtype_op = SLL_OP;
+		   FUNC_SRL	:  rtype_op = SRL_OP;
+		   FUNC_MUL :  rtype_op = MUL_OP;
+           FUNC_MAC :  rtype_op = MUL_OP;
+			default:    rtype_op = 4'd0;
+		endcase
+	end
 
 
 	always @(*) begin
@@ -99,6 +68,16 @@ end
 			default       : alu_control = 'b0;
 		endcase
 	end
+
+    always @(*) begin
+        if(alu_op == R_TYPE_OPCODE && function_field == FUNC_MAC) begin
+            mac_select = 1'b1;
+        end 
+        else begin
+            mac_select = 1'b0;
+        end
+    end
+
 
 endmodule
 
