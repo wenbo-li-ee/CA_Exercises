@@ -155,7 +155,6 @@ assign instruction_EX_MEM              = EX_MEM_reg_Q[31:0];
 wire mem_2_reg_MEM_WB, reg_write_MEM_WB;
 wire [      63:0] mem_data_MEM_WB;
 wire [      63:0] alu_out_MEM_WB;
-wire [      63:0] alu_out_MEM_WB;
 wire [      31:0] instruction_MEM_WB;
 wire [     161:0] MEM_WB_reg_D;
 wire [     161:0] MEM_WB_reg_Q;
