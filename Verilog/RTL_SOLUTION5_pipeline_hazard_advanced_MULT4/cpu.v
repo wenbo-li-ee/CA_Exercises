@@ -41,7 +41,7 @@ module cpu(
 wire              zero_flag;
 wire [      63:0] branch_pc,updated_pc,current_pc,jump_pc;
 wire [      31:0] instruction;
-
+wire  mac_select;
 
 
 //IF_ID_reg
@@ -125,23 +125,26 @@ assign instruction_ID_EX        = ID_EX_reg_Q[31:0];
 
 
 //EX_MEM_reg
-wire mem_read_EX_MEM, mem_2_reg_EX_MEM, mem_write_EX_MEM,reg_write_EX_MEM;
-wire [      63:0] alu_out_EX_MEM;
+wire mac_select_EX_MEM, mem_read_EX_MEM, mem_2_reg_EX_MEM, mem_write_EX_MEM,reg_write_EX_MEM;
+wire [      63:0] alu_out_EX_MEM_to_mux;
 wire [      63:0] alu_operand_2_EX_MEM;
 wire [      31:0] instruction_EX_MEM;
-wire [     163:0] EX_MEM_reg_D;
-wire [     163:0] EX_MEM_reg_Q;
+wire [     164:0] EX_MEM_reg_D;
+wire [     164:0] EX_MEM_reg_Q;
 reg               EX_MEM_reg_enable;
+wire [      63:0] alu_out_EX_MEM;
 
-assign EX_MEM_reg_D = {mem_read_ID_EX, mem_2_reg_ID_EX, mem_write_ID_EX, reg_write_ID_EX, alu_out, mux_3_alu_operand_2, instruction_ID_EX};
+assign EX_MEM_reg_D = {mac_select, mem_read_ID_EX, mem_2_reg_ID_EX, mem_write_ID_EX, reg_write_ID_EX, alu_out, mux_3_alu_operand_2, instruction_ID_EX};
 
-assign mem_read_EX_MEM        = EX_MEM_reg_Q[163];
-assign mem_2_reg_EX_MEM       = EX_MEM_reg_Q[162];
-assign mem_write_EX_MEM       = EX_MEM_reg_Q[161];
-assign reg_write_EX_MEM       = EX_MEM_reg_Q[160];
-assign alu_out_EX_MEM         = EX_MEM_reg_Q[159:96];
-assign alu_operand_2_EX_MEM   = EX_MEM_reg_Q[95:32];
-assign instruction_EX_MEM     = EX_MEM_reg_Q[31:0];
+assign mac_select_EX_MEM               = EX_MEM_reg_Q[164];
+assign mem_read_EX_MEM                 = EX_MEM_reg_Q[163];
+assign mem_2_reg_EX_MEM                = EX_MEM_reg_Q[162];
+assign mem_write_EX_MEM                = EX_MEM_reg_Q[161];
+assign reg_write_EX_MEM                = EX_MEM_reg_Q[160];
+assign alu_out_EX_MEM_to_mux           = EX_MEM_reg_Q[159:96];
+assign alu_operand_2_EX_MEM            = EX_MEM_reg_Q[95:32];
+assign instruction_EX_MEM              = EX_MEM_reg_Q[31:0];
+
 
 
 
@@ -151,6 +154,7 @@ assign instruction_EX_MEM     = EX_MEM_reg_Q[31:0];
 //MEM_WB_reg
 wire mem_2_reg_MEM_WB, reg_write_MEM_WB;
 wire [      63:0] mem_data_MEM_WB;
+wire [      63:0] alu_out_MEM_WB;
 wire [      63:0] alu_out_MEM_WB;
 wire [      31:0] instruction_MEM_WB;
 wire [     161:0] MEM_WB_reg_D;
@@ -166,7 +170,9 @@ assign alu_out_MEM_WB       = MEM_WB_reg_Q[95:32];
 assign instruction_MEM_WB   = MEM_WB_reg_Q[31:0];
 
 
+wire [      63:0] mac_out_EX_MEM_to_mux;
 
+assign mac_out_EX_MEM_to_mux = alu_out_MEM_WB + alu_out_EX_MEM_to_mux;
 
 
 
@@ -302,6 +308,16 @@ reg_arstn_en#(
 );
 
 
+mux_2#(
+   .DATA_W(8)
+)EX_MEM_source_mux(
+   .input_a(mac_out_EX_MEM_to_mux),
+   .input_b(alu_out_EX_MEM_to_mux),
+   .select_a(mac_select_EX_MEM),
+   .mux_out(alu_out_EX_MEM)
+);
+
+
 
 
 mux_3#(
@@ -364,7 +380,8 @@ alu_control alu_ctrl(
    .func7          (instruction_ID_EX[31:25]),
    .func3          (instruction_ID_EX[14:12]),
    .alu_op         (alu_op_ID_EX            ),
-   .alu_control    (alu_control             )
+   .alu_control    (alu_control             ),
+   .mac_select     (mac_select)
 );
 
 
