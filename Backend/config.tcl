@@ -2,7 +2,7 @@
 set ::env(STD_CELL_LIBRARY) "sky130_fd_sc_hd"
 
 set ::env(DESIGN_NAME) cpu
-set ::env(VERILOG_FILES) ../Verilog/RTL_SOLUTION2_multiplication_support_MULT2/*.v
+set ::env(VERILOG_FILES) ../Verilog/RTL_SOLUTION3_pipeline_basic_MULT2/*.v
 set ::env(CLOCK_PORT) "clk"
 set ::env(CLOCK_NET) "clk"
 set ::env(CLOCK_PERIOD) 100
