@@ -109,26 +109,26 @@ wire [      63:0] branch_pc_EX_MEM;
 wire [      63:0] jump_pc_EX_MEM;
 wire              zero_flag_EX_MEM;
 wire [      63:0] alu_out_EX_MEM;
-wire [      63:0] regfile_rdata_2_EX_MEM;
+wire [      63:0] mux_3_alu_operand_2_EX_MEM;
 wire [      31:0] instruction_EX_MEM;
 wire [     294:0] EX_MEM_reg_D;
 wire [     294:0] EX_MEM_reg_Q;
 reg               EX_MEM_reg_enable;
 
-assign EX_MEM_reg_D = {jump_ID_EX, branch_ID_EX, mem_read_ID_EX, mem_2_reg_ID_EX, mem_write_ID_EX, reg_write_ID_EX, branch_pc, jump_pc, zero_flag, alu_out, regfile_rdata_2_ID_EX, instruction_ID_EX};
+assign EX_MEM_reg_D = {jump_ID_EX, branch_ID_EX, mem_read_ID_EX, mem_2_reg_ID_EX, mem_write_ID_EX, reg_write_ID_EX, branch_pc, jump_pc, zero_flag, alu_out, mux_3_alu_operand_2, instruction_ID_EX};
 
-assign jump_EX_MEM            = EX_MEM_reg_Q[294];
-assign branch_EX_MEM          = EX_MEM_reg_Q[293];
-assign mem_read_EX_MEM        = EX_MEM_reg_Q[292];
-assign mem_2_reg_EX_MEM       = EX_MEM_reg_Q[291];
-assign mem_write_EX_MEM       = EX_MEM_reg_Q[290];
-assign reg_write_EX_MEM       = EX_MEM_reg_Q[289];
-assign branch_pc_EX_MEM       = EX_MEM_reg_Q[288:225];
-assign jump_pc_EX_MEM         = EX_MEM_reg_Q[224:161];
-assign zero_flag_EX_MEM       = EX_MEM_reg_Q[160];
-assign alu_out_EX_MEM         = EX_MEM_reg_Q[159:96];
-assign regfile_rdata_2_EX_MEM = EX_MEM_reg_Q[95:32];
-assign instruction_EX_MEM     = EX_MEM_reg_Q[31:0];
+assign jump_EX_MEM                = EX_MEM_reg_Q[294];
+assign branch_EX_MEM              = EX_MEM_reg_Q[293];
+assign mem_read_EX_MEM            = EX_MEM_reg_Q[292];
+assign mem_2_reg_EX_MEM           = EX_MEM_reg_Q[291];
+assign mem_write_EX_MEM           = EX_MEM_reg_Q[290];
+assign reg_write_EX_MEM           = EX_MEM_reg_Q[289];
+assign branch_pc_EX_MEM           = EX_MEM_reg_Q[288:225];
+assign jump_pc_EX_MEM             = EX_MEM_reg_Q[224:161];
+assign zero_flag_EX_MEM           = EX_MEM_reg_Q[160];
+assign alu_out_EX_MEM             = EX_MEM_reg_Q[159:96];
+assign mux_3_alu_operand_2_EX_MEM = EX_MEM_reg_Q[95:32];
+assign instruction_EX_MEM         = EX_MEM_reg_Q[31:0];
 
 
 
@@ -344,7 +344,7 @@ sram_BW64 #(
    .addr     (alu_out_EX_MEM        ),
    .wen      (mem_write_EX_MEM      ),
    .ren      (mem_read_EX_MEM       ),
-   .wdata    (regfile_rdata_2_EX_MEM),
+   .wdata    (mux_3_alu_operand_2_EX_MEM),
    .rdata    (mem_data       ),
    .addr_ext (addr_ext_2     ),
    .wen_ext  (wen_ext_2      ),
@@ -396,5 +396,4 @@ end
 
 
 endmodule
-
 
