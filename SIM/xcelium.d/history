@@ -52,3 +52,6 @@ s47::(23Apr2025:16:41:01):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -time
 s48::(23Apr2025:16:43:08):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition -linedebug -gui )
 s49::(23Apr2025:17:20:09):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition -linedebug -gui )
 s50::(23Apr2025:17:28:59):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition -linedebug -gui )
+s51::(30Apr2025:01:01:24):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition )
+s52::(30Apr2025:01:09:05):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition )
+s53::(30Apr2025:01:11:02):( xrun +sv -64bit -f files_verilog.f -top cpu_tb -timescale 1ns/10ps -access +rwc -allowredefinition )

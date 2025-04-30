@@ -133,7 +133,7 @@ wire [     163:0] EX_MEM_reg_D;
 wire [     163:0] EX_MEM_reg_Q;
 reg               EX_MEM_reg_enable;
 
-assign EX_MEM_reg_D = {mem_read_ID_EX, mem_2_reg_ID_EX, mem_write_ID_EX, reg_write_ID_EX, alu_out, alu_operand_2, instruction_ID_EX};
+assign EX_MEM_reg_D = {mem_read_ID_EX, mem_2_reg_ID_EX, mem_write_ID_EX, reg_write_ID_EX, alu_out, mux_3_alu_operand_2, instruction_ID_EX};
 
 assign mem_read_EX_MEM        = EX_MEM_reg_Q[163];
 assign mem_2_reg_EX_MEM       = EX_MEM_reg_Q[162];
@@ -340,6 +340,7 @@ alu#(
 ) alu(
    .alu_in_0 (mux_3_alu_operand_1 ),
    .alu_in_1 (alu_operand_2   ),
+   .alu_in_2 (alu_out_EX_MEM),
    .alu_ctrl (alu_control     ),
    .alu_out  (alu_out         ),
    .zero_flag(                ),
@@ -389,7 +390,7 @@ sram_BW64 #(
    .addr     (alu_out_EX_MEM        ),
    .wen      (mem_write_EX_MEM      ),
    .ren      (mem_read_EX_MEM       ),
-   .wdata    (regfile_rdata_2_EX_MEM),
+   .wdata    (alu_operand_2_EX_MEM),
    .rdata    (mem_data       ),
    .addr_ext (addr_ext_2     ),
    .wen_ext  (wen_ext_2      ),
