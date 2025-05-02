@@ -1,5 +1,5 @@
 xrun(64): 23.03-s002: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.03-s002: Started on Apr 30, 2025 at 01:11:02 CEST
+TOOL:	xrun(64)	23.03-s002: Started on May 02, 2025 at 21:33:45 CEST
 xrun
 	+sv
 	-64bit
@@ -26,47 +26,182 @@ xrun
 	-timescale 1ns/10ps
 	-access +rwc
 	-allowredefinition
-Recompiling... reason: file '../Verilog/RTL/alu.v' is newer than expected.
-	expected: Wed Apr 30 00:56:50 2025
-	actual:   Wed Apr 30 01:10:49 2025
-file: ../Verilog/RTL/alu.v
-	module worklib.alu:v
-		errors: 0, warnings: 0
-	Elaborating the design hierarchy:
-		Caching library 'worklib' ....... Done
-	Top level design units:
-		cpu_tb
-	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.alu_control:v <0x247bd750>
-			streams:   3, words:  1014
-		worklib.alu:v <0x505d15a4>
-			streams:   7, words:  5917
-	Building instance specific data structures.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		                  Instances  Unique
-		Modules:                 27      19
-		Registers:              125     114
-		Scalar wires:            51       -
-		Vectored wires:          80       -
-		Always blocks:           54      43
-		Initial blocks:           3       3
-		Cont. assignments:       13      37
-		Pseudo assignments:      36       -
-		Simulation timescale:  10ps
-	Writing initial simulation snapshot: worklib.cpu_tb:v
 Loading snapshot worklib.cpu_tb:v .................... Done
 xcelium> source /esat/micas-data/software/Cadence/xcelium_23.03/tools/xcelium/files/xmsimrc
 xcelium> run
 
 Start Execution
 
-[1;34m
-Mult4 Working Correctly
+[1;31m
+Error in Mult4[          2] function
+Debug info, value:    0000000000000000000000000000000000000000000000000000000111011010
+Debug info, expected: 0000000000000000000000000000000000000000000000000000000111111001
 [0m
+[1;31m
+Error in Mult4[          3] function
+Debug info, value:    0000000000000000000000000000000000000000000000000000001000100000
+Debug info, expected: 0000000000000000000000000000000000000000000000000000001001000100
+[0m
+[1;31m
+Error in Mult4[          4] function
+Debug info, value:    0000000000000000000000000000000000000000000000000000001001100110
+Debug info, expected: 0000000000000000000000000000000000000000000000000000001010001111
+[0m
+[1;31m
+Error in Mult4[          5] function
+Debug info, value:    0000000000000000000000000000000000000000000000000000001010101100
+Debug info, expected: 0000000000000000000000000000000000000000000000000000001011011010
+[0m
+=== Data Memory Status ===
+Debug info, dmem[          0]:                    1
+=== Data Memory Status ===
+Debug info, dmem[          1]:                    2
+=== Data Memory Status ===
+Debug info, dmem[          2]:                    3
+=== Data Memory Status ===
+Debug info, dmem[          3]:                    4
+=== Data Memory Status ===
+Debug info, dmem[          4]:                    5
+=== Data Memory Status ===
+Debug info, dmem[          5]:                    6
+=== Data Memory Status ===
+Debug info, dmem[          6]:                    7
+=== Data Memory Status ===
+Debug info, dmem[          7]:                    8
+=== Data Memory Status ===
+Debug info, dmem[          8]:                    9
+=== Data Memory Status ===
+Debug info, dmem[          9]:                   10
+=== Data Memory Status ===
+Debug info, dmem[         10]:                   11
+=== Data Memory Status ===
+Debug info, dmem[         11]:                   12
+=== Data Memory Status ===
+Debug info, dmem[         12]:                   13
+=== Data Memory Status ===
+Debug info, dmem[         13]:                   14
+=== Data Memory Status ===
+Debug info, dmem[         14]:                   15
+=== Data Memory Status ===
+Debug info, dmem[         15]:                   16
+=== Data Memory Status ===
+Debug info, dmem[         16]:                   17
+=== Data Memory Status ===
+Debug info, dmem[         17]:                   18
+=== Data Memory Status ===
+Debug info, dmem[         18]:                   19
+=== Data Memory Status ===
+Debug info, dmem[         19]:                   20
+=== Data Memory Status ===
+Debug info, dmem[         20]:                   21
+=== Data Memory Status ===
+Debug info, dmem[         21]:                   22
+=== Data Memory Status ===
+Debug info, dmem[         22]:                   23
+=== Data Memory Status ===
+Debug info, dmem[         23]:                   24
+=== Data Memory Status ===
+Debug info, dmem[         24]:                   25
+=== Data Memory Status ===
+Debug info, dmem[         25]:                   26
+=== Data Memory Status ===
+Debug info, dmem[         26]:                   27
+=== Data Memory Status ===
+Debug info, dmem[         27]:                   28
+=== Data Memory Status ===
+Debug info, dmem[         28]:                   29
+=== Data Memory Status ===
+Debug info, dmem[         29]:                   30
+=== Data Memory Status ===
+Debug info, dmem[         30]:                   31
+=== Data Memory Status ===
+Debug info, dmem[         31]:                   32
+=== Data Memory Status ===
+Debug info, dmem[         32]:                   33
+=== Data Memory Status ===
+Debug info, dmem[         33]:                   34
+=== Data Memory Status ===
+Debug info, dmem[         34]:                   35
+=== Data Memory Status ===
+Debug info, dmem[         35]:                   36
+=== Data Memory Status ===
+Debug info, dmem[         36]:                   37
+=== Data Memory Status ===
+Debug info, dmem[         37]:                   38
+=== Data Memory Status ===
+Debug info, dmem[         38]:                   39
+=== Data Memory Status ===
+Debug info, dmem[         39]:                   40
+=== Data Memory Status ===
+Debug info, dmem[         40]:                   41
+=== Data Memory Status ===
+Debug info, dmem[         41]:                   42
+=== Data Memory Status ===
+Debug info, dmem[         42]:                   43
+=== Data Memory Status ===
+Debug info, dmem[         43]:                   44
+=== Data Memory Status ===
+Debug info, dmem[         44]:                   45
+=== Data Memory Status ===
+Debug info, dmem[         45]:                   46
+=== Data Memory Status ===
+Debug info, dmem[         46]:                   47
+=== Data Memory Status ===
+Debug info, dmem[         47]:                   48
+=== Data Memory Status ===
+Debug info, dmem[         48]:                   49
+=== Data Memory Status ===
+Debug info, dmem[         49]:                   50
+=== Data Memory Status ===
+Debug info, dmem[         50]:                  355
+=== Data Memory Status ===
+Debug info, dmem[         51]:                  430
+=== Data Memory Status ===
+Debug info, dmem[         52]:                  474
+=== Data Memory Status ===
+Debug info, dmem[         53]:                  544
+=== Data Memory Status ===
+Debug info, dmem[         54]:                  614
+=== Data Memory Status ===
+Debug info, dmem[         55]:                  684
+=== Data Memory Status ===
+Debug info, dmem[         56]:                  930
+=== Data Memory Status ===
+Debug info, dmem[         57]:                 1130
+=== Data Memory Status ===
+Debug info, dmem[         58]:                 1330
+=== Data Memory Status ===
+Debug info, dmem[         59]:                 1530
+=== Data Memory Status ===
+Debug info, dmem[         60]:                 1730
+=== Data Memory Status ===
+Debug info, dmem[         61]:                 1930
+=== Data Memory Status ===
+Debug info, dmem[         62]:                 1505
+=== Data Memory Status ===
+Debug info, dmem[         63]:                 1830
+=== Data Memory Status ===
+Debug info, dmem[         64]:                 2155
+=== Data Memory Status ===
+Debug info, dmem[         65]:                 2480
+=== Data Memory Status ===
+Debug info, dmem[         66]:                 2805
+=== Data Memory Status ===
+Debug info, dmem[         67]:                 3130
+=== Data Memory Status ===
+Debug info, dmem[         68]:                 2080
+=== Data Memory Status ===
+Debug info, dmem[         69]:                 2530
+=== Data Memory Status ===
+Debug info, dmem[         70]:                 2980
+=== Data Memory Status ===
+Debug info, dmem[         71]:                 3430
+=== Data Memory Status ===
+Debug info, dmem[         72]:                 3880
+=== Data Memory Status ===
+Debug info, dmem[         73]:                 4330
         227 cycles
 Simulation complete via $finish(1) at time 58560 NS + 0
 ../Verilog/cpu_tb.v:341    $finish;
 xcelium> exit
-TOOL:	xrun(64)	23.03-s002: Exiting on Apr 30, 2025 at 01:11:04 CEST  (total: 00:00:02)
+TOOL:	xrun(64)	23.03-s002: Exiting on May 02, 2025 at 21:33:47 CEST  (total: 00:00:02)
