@@ -1,0 +1,118 @@
+
+===========================================================================
+report_checks -unconstrained
+============================================================================
+Startpoint: signal_pipe_ID_EX._2150_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: signal_pipe_EX_MEM._2000_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ signal_pipe_ID_EX._2150_/CLK (sky130_fd_sc_hd__dfrtp_2)
+                  0.05    0.45    0.45 v signal_pipe_ID_EX._2150_/Q (sky130_fd_sc_hd__dfrtp_2)
+     2    0.01                           alu_operand_mux.select_a (net)
+                  0.05    0.00    0.45 v alu_operand_mux._136_/A (sky130_fd_sc_hd__buf_1)
+                  0.08    0.14    0.59 v alu_operand_mux._136_/X (sky130_fd_sc_hd__buf_1)
+     6    0.01                           alu_operand_mux._000_ (net)
+                  0.08    0.00    0.59 v alu_operand_mux._137_/A (sky130_fd_sc_hd__buf_1)
+                  0.45    0.45    1.04 v alu_operand_mux._137_/X (sky130_fd_sc_hd__buf_1)
+    19    0.08                           alu_operand_mux._001_ (net)
+                  0.45    0.00    1.04 v alu_operand_mux._138_/A (sky130_fd_sc_hd__buf_1)
+                  0.47    0.58    1.62 v alu_operand_mux._138_/X (sky130_fd_sc_hd__buf_1)
+    18    0.08                           alu_operand_mux._002_ (net)
+                  0.47    0.00    1.62 v alu_operand_mux._141_/A1 (sky130_fd_sc_hd__o21ai_2)
+                  0.11    0.26    1.88 ^ alu_operand_mux._141_/Y (sky130_fd_sc_hd__o21ai_2)
+     1    0.00                           alu.alu_in_1[0] (net)
+                  0.11    0.00    1.88 ^ alu._21411_/A (sky130_fd_sc_hd__buf_1)
+                  0.50    0.44    2.31 ^ alu._21411_/X (sky130_fd_sc_hd__buf_1)
+    17    0.04                           alu._16432_ (net)
+                  0.50    0.00    2.31 ^ alu._21412_/A (sky130_fd_sc_hd__buf_1)
+                  0.90    0.77    3.08 ^ alu._21412_/X (sky130_fd_sc_hd__buf_1)
+    24    0.08                           alu._16443_ (net)
+                  0.90    0.00    3.08 ^ alu._21859_/A (sky130_fd_sc_hd__buf_1)
+                  0.96    0.82    3.91 ^ alu._21859_/X (sky130_fd_sc_hd__buf_1)
+    21    0.08                           alu._00362_ (net)
+                  0.96    0.00    3.91 ^ alu._21860_/A (sky130_fd_sc_hd__buf_1)
+                  0.92    0.80    4.70 ^ alu._21860_/X (sky130_fd_sc_hd__buf_1)
+    21    0.08                           alu._00373_ (net)
+                  0.92    0.00    4.70 ^ alu._21861_/A (sky130_fd_sc_hd__buf_1)
+                  1.15    0.96    5.67 ^ alu._21861_/X (sky130_fd_sc_hd__buf_1)
+    25    0.10                           alu._00384_ (net)
+                  1.15    0.00    5.67 ^ alu._21862_/A (sky130_fd_sc_hd__buf_1)
+                  1.25    1.04    6.71 ^ alu._21862_/X (sky130_fd_sc_hd__buf_1)
+    23    0.11                           alu._00395_ (net)
+                  1.25    0.00    6.71 ^ alu._21994_/A (sky130_fd_sc_hd__buf_1)
+                  1.19    1.00    7.71 ^ alu._21994_/X (sky130_fd_sc_hd__buf_1)
+    21    0.10                           alu._01843_ (net)
+                  1.19    0.00    7.71 ^ alu._21995_/A (sky130_fd_sc_hd__buf_1)
+                  1.16    0.97    8.68 ^ alu._21995_/X (sky130_fd_sc_hd__buf_1)
+    23    0.10                           alu._01854_ (net)
+                  1.16    0.00    8.68 ^ alu._29273_/S0 (sky130_fd_sc_hd__mux4_2)
+                  0.10    0.66    9.34 v alu._29273_/X (sky130_fd_sc_hd__mux4_2)
+     4    0.01                           alu._19281_ (net)
+                  0.10    0.00    9.34 v alu._29274_/A3 (sky130_fd_sc_hd__mux4_2)
+                  0.10    0.53    9.87 v alu._29274_/X (sky130_fd_sc_hd__mux4_2)
+     2    0.01                           alu._19282_ (net)
+                  0.10    0.00    9.87 v alu._29277_/B1 (sky130_fd_sc_hd__o221a_2)
+                  0.04    0.26   10.13 v alu._29277_/X (sky130_fd_sc_hd__o221a_2)
+     1    0.00                           alu._19286_ (net)
+                  0.04    0.00   10.13 v alu._29283_/A (sky130_fd_sc_hd__or4_2)
+                  0.09    0.67   10.80 v alu._29283_/X (sky130_fd_sc_hd__or4_2)
+     1    0.00                           alu._19292_ (net)
+                  0.09    0.00   10.80 v alu._29284_/B1_N (sky130_fd_sc_hd__o21ba_2)
+                  0.05    0.25   11.05 ^ alu._29284_/X (sky130_fd_sc_hd__o21ba_2)
+     1    0.00                           alu._19293_ (net)
+                  0.05    0.00   11.05 ^ alu._29285_/B1 (sky130_fd_sc_hd__o31a_2)
+                  0.07    0.16   11.21 ^ alu._29285_/X (sky130_fd_sc_hd__o31a_2)
+     2    0.01                           alu._19294_ (net)
+                  0.07    0.00   11.21 ^ alu._21008_/A (sky130_fd_sc_hd__nand4_2)
+                  0.08    0.08   11.28 v alu._21008_/Y (sky130_fd_sc_hd__nand4_2)
+     1    0.00                           alu._12334_ (net)
+                  0.08    0.00   11.28 v alu._21010_/B (sky130_fd_sc_hd__nor3_2)
+                  0.14    0.18   11.46 ^ alu._21010_/Y (sky130_fd_sc_hd__nor3_2)
+     1    0.00                           alu._12336_ (net)
+                  0.14    0.00   11.46 ^ alu._21011_/C (sky130_fd_sc_hd__nand3_2)
+                  0.07    0.09   11.56 v alu._21011_/Y (sky130_fd_sc_hd__nand3_2)
+     1    0.00                           alu._12337_ (net)
+                  0.07    0.00   11.56 v alu._21014_/B (sky130_fd_sc_hd__nor3_2)
+                  0.14    0.18   11.73 ^ alu._21014_/Y (sky130_fd_sc_hd__nor3_2)
+     1    0.00                           alu._12340_ (net)
+                  0.14    0.00   11.73 ^ alu._21016_/B (sky130_fd_sc_hd__nand3_2)
+                  0.07    0.09   11.83 v alu._21016_/Y (sky130_fd_sc_hd__nand3_2)
+     1    0.00                           alu._12343_ (net)
+                  0.07    0.00   11.83 v alu._21021_/B (sky130_fd_sc_hd__nor3_2)
+                  0.14    0.18   12.00 ^ alu._21021_/Y (sky130_fd_sc_hd__nor3_2)
+     1    0.00                           alu.zero_flag (net)
+                  0.14    0.00   12.00 ^ signal_pipe_EX_MEM._1423_/B (sky130_fd_sc_hd__nand2_2)
+                  0.15    0.07   12.07 v signal_pipe_EX_MEM._1423_/Y (sky130_fd_sc_hd__nand2_2)
+     1    0.00                           signal_pipe_EX_MEM._0559_ (net)
+                  0.15    0.00   12.07 v signal_pipe_EX_MEM._1424_/B1 (sky130_fd_sc_hd__o21ai_2)
+                  0.11    0.08   12.16 ^ signal_pipe_EX_MEM._1424_/Y (sky130_fd_sc_hd__o21ai_2)
+     1    0.00                           signal_pipe_EX_MEM._0160_ (net)
+                  0.11    0.00   12.16 ^ signal_pipe_EX_MEM._2000_/D (sky130_fd_sc_hd__dfrtp_2)
+                                 12.16   data arrival time
+
+                  0.15   20.00   20.00   clock clk (rise edge)
+                          0.00   20.00   clock network delay (ideal)
+                         -0.25   19.75   clock uncertainty
+                          0.00   19.75   clock reconvergence pessimism
+                                 19.75 ^ signal_pipe_EX_MEM._2000_/CLK (sky130_fd_sc_hd__dfrtp_2)
+                         -0.06   19.69   library setup time
+                                 19.69   data required time
+-----------------------------------------------------------------------------
+                                 19.69   data required time
+                                -12.16   data arrival time
+-----------------------------------------------------------------------------
+                                  7.53   slack (MET)
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+No paths found.
